@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+//componentes
+import Header from './components/header';
+import Padre from './components/componentePadre';
+import OtraPagina from './components/otraPagina';
+import Error404 from './components/error404';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div className="callout">
+        <Switch>
+            <Route path="/" exact component={Padre} />
+            <Route path="/otraPagina" exact component={OtraPagina} />
+            <Route path='/error404' exact component={Error404} />
+            <Route path="*" status={404}>
+              <Redirect to='/error404' />
+            </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

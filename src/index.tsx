@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//estilo css
+import 'foundation-sites/dist/css/foundation.min.css';
+//componentes
 import App from './App';
+//servicio offline
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
